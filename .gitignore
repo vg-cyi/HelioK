@@ -1,0 +1,10 @@
+*.aux
+*.log
+*.spl
+*.gz
+*.blg
+*.out
+*.bbl
+.ipynb_checkpoints/
+__pycache__/
+documentation/

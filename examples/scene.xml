@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<HelioK version="2020.2" unitLength="m" unitAngle="deg">
+	<World>
+		<Location name="Pentakomo" longitude="33.261" latitude="34.707"/>
+		<Sun azimuth="120.000" elevation="45.000" irradiance="1000.000">
+			<SunShapePillbox/>
+		</Sun>
+	</World>
+	<Factory>
+		<Material name="mirror" reflectivity="1.000" roughness="1.000 mrad"/>
+		<Material name="absorber" reflectivity="0.000" roughness="1.000 mrad"/>
+		<HeliostatKit name="AzEl">
+			<Primary translation="0.000, 0.000, 1.500" rotationAxis="0.000, 0.000, -1.000" rotationAngles="-90.000, 90.000"/>
+			<Secondary translation="0.000, 0.100, 0.000" rotationAxis="1.000, 0.000, 0.000" rotationAngles="0.000, 90.000"/>
+			<Facet rotation="90.000, 0.000, 180.000">
+				<ShapeKit>
+					<ShapeParabolic focus="70.000"/>
+					<ApertureRectangular xWidth="2.000" yWidth="2.000"/>
+					<Material ref="mirror"/>
+				</ShapeKit>
+			</Facet>
+			<Angles primary="0.000" secondary="0.000"/>
+			<Tracking point="0.000, 0.000, 0.000" normal="0.000, 1.000, 0.000"/>
+			<Aiming point="0.000, 0.000, 20.000"/>
+		</HeliostatKit>
+	</Factory>
+	<Scene>
+		<Node name="Receiver" translation="0.000, 0.000, 20.000" rotation="90.000, 0.000, 180.000">
+			<ShapeKit>
+				<ShapeFlat/>
+				<ApertureRectangular xWidth="2.000" yWidth="2.000"/>
+				<Material ref="absorber"/>
+			</ShapeKit>
+		</Node>
+		<Node name="Heliostats">
+			<Node name="HeliostatA" translation="30.000, 50.000, 0.000" rotation="0.000, 0.000, 149.036">
+				<HeliostatKit ref="AzEl"/>
+			</Node>
+			<Node name="HeliostatB" translation="-30.000, 50.000, 0.000" rotation="0.000, 0.000, -149.036">
+				<HeliostatKit ref="AzEl"/>
+			</Node>
+		</Node>
+	</Scene>
+</HelioK>
